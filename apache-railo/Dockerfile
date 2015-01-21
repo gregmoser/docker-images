@@ -8,7 +8,8 @@ RUN apt-get install -y openjdk-7-jre-headless tomcat7 tomcat7-admin apache2 liba
 RUN apt-get purge -y openjdk-6-jre-headless icedtea-6-jre-cacao openjdk-6-jre-lib icedtea-6-jre-jamvm
 
 # config to enable .htaccess
-ADD _deploy/apache_default /etc/apache2/sites-available/000-default.conf
+ADD ./apache_default /etc/apache2/sites-available/000-default.conf
+ADD ./index.cfm /var/www/html/index.cfm
 RUN a2enmod rewrite
 
 ENV APACHE_RUN_USER www-data
